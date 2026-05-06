@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyline Consultancy — Study Abroad Experts</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sky: #0B2E5E;
+    --sky-mid: #1A4A8A;
+    --sky-light: #2E6BC4;
+    --gold: #C8922A;
+    --gold-light: #E8B84B;
+    --cream: #F9F5EE;
+    --white: #FFFFFF;
+    --text-dark: #0D1B2A;
+    --text-mid: #3D5166;
+    --text-light: #7A8EA4;
+    --border: #DDE4EE;
+    --section-bg: #F4F7FB;
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 32px rgba(11,46,94,0.10);
+    --shadow-hover: 0 12px 48px rgba(11,46,94,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ff-body);
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11,46,94,0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: var(--sky); font-family: var(--ff-display);
+  }
+  .nav-logo-text {
+    font-family: var(--ff-display);
+    font-size: 20px; font-weight: 700; color: var(--white);
+    line-height: 1.1;
+  }
+  .nav-logo-sub { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--sky) !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--sky) 0%, var(--sky-mid) 55%, #1B3A6B 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse 600px 400px at 80% 30%, rgba(200,146,42,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 600px at 10% 80%, rgba(46,107,196,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,146,42,0.15);
+    border: 1px solid rgba(200,146,42,0.35);
+    color: var(--gold-light);
+    font-size: 13px; font-weight: 500;
+    padding: 8px 18px; border-radius: 100px;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '✦'; font-size: 10px; }
+
+  .hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(42px, 7vw, 84px);
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.08;
+    max-width: 900px;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+  .hero-title span { color: var(--gold-light); }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px);
+    color: rgba(255,255,255,0.72);
+    text-align: center;
+    max-width: 600px;
+    margin: 24px auto 0;
+    font-weight: 300;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--sky);
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-weight: 700; font-size: 16px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none; cursor: pointer;
+    letter-spacing: 0.2px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,146,42,0.35); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 15px 34px;
+    border-radius: 10px;
+    font-weight: 600; font-size: 16px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    transition: all 0.25s; cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 72px;
+    animation: fadeUp 0.7s ease 0.4s both;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: var(--ff-display);
+    font-size: 38px; font-weight: 900;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-num span { color: var(--gold-light); }
+  .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; margin-top: 4px; }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 12px; letter-spacing: 1px;
+    animation: bounce 2s infinite;
+    cursor: pointer; text-decoration: none;
+  }
+  .hero-scroll::after {
+    content: ''; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 100px 5%; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: var(--ff-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--text-dark);
+  }
+
+  .section-title-white { color: var(--white); }
+
+  .section-desc {
+    font-size: 17px; color: var(--text-mid);
+    max-width: 600px; margin-top: 16px;
+    font-weight: 300;
+  }
+
+  .section-header { margin-bottom: 60px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-desc { margin: 16px auto 0; }
+
+  /* ─── WHY US ─── */
+  #why {
+    background: var(--section-bg);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+  }
+
+  .why-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sky-light), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  .why-card:hover::before { transform: scaleX(1); }
+
+  .why-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, rgba(11,46,94,0.08), rgba(46,107,196,0.12));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+
+  .why-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; color: var(--text-dark); }
+  .why-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+  /* ─── DESTINATIONS ─── */
+  #destinations { background: var(--white); }
+
+  .dest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .dest-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    height: 340px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .dest-card:hover { transform: scale(1.02); }
+  .dest-card:hover .dest-overlay { background: rgba(11,46,94,0.65); }
+
+  .dest-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .dest-flag {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 90px;
+  }
+
+  .dest-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(11,46,94,0.9) 0%, rgba(11,46,94,0.3) 50%, transparent 100%);
+    transition: background 0.3s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+  }
+
+  .dest-tag {
+    background: var(--gold);
+    color: var(--sky);
+    font-size: 11px; font-weight: 700;
+    padding: 4px 12px; border-radius: 100px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    width: fit-content; margin-bottom: 10px;
+  }
+
+  .dest-name {
+    font-family: var(--ff-display);
+    font-size: 26px; font-weight: 700;
+    color: var(--white); line-height: 1.1;
+  }
+  .dest-unis { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 6px; }
+
+  .dest-arrow {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 16px;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .dest-card:hover .dest-arrow { opacity: 1; }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: var(--sky);
+    position: relative;
+    overflow: hidden;
+  }
+  #services::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,146,42,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .service-item {
+    background: rgba(255,255,255,0.04);
+    padding: 40px 36px;
+    transition: background 0.3s;
+    border: none;
+    cursor: default;
+  }
+  .service-item:hover { background: rgba(255,255,255,0.09); }
+
+  .service-num {
+    font-family: var(--ff-display);
+    font-size: 48px; font-weight: 900;
+    color: rgba(255,255,255,0.08); line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .service-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .service-item h3 { font-size: 19px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .service-item p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+  .service-learn {
+    margin-top: 20px;
+    font-size: 13px; font-weight: 600;
+    color: var(--gold-light);
+    display: flex; align-items: center; gap: 6px;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .service-learn:hover { gap: 10px; }
+
+  /* ─── PROCESS ─── */
+  #process { background: var(--cream); }
+
+  .process-steps {
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; max-width: 760px; margin: 0 auto;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute; left: 35px; top: 35px; bottom: 35px; width: 2px;
+    background: linear-gradient(to bottom, var(--sky-light), var(--gold));
+  }
+
+  .process-step {
+    display: flex; gap: 32px; align-items: flex-start;
+    padding: 32px 0;
+    position: relative;
+  }
+
+  .step-num {
+    width: 70px; height: 70px; flex-shrink: 0;
+    background: var(--white);
+    border: 2px solid var(--sky-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-display);
+    font-size: 22px; font-weight: 900;
+    color: var(--sky);
+    position: relative; z-index: 1;
+    transition: all 0.3s;
+  }
+  .process-step:hover .step-num {
+    background: var(--sky);
+    color: var(--white);
+    border-color: var(--sky);
+    transform: scale(1.1);
+  }
+
+  .step-content { padding-top: 10px; }
+  .step-content h3 { font-size: 20px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+  .step-content p { font-size: 15px; color: var(--text-mid); }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--white); }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .testi-card {
+    background: var(--section-bg);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .testi-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+
+  .testi-quote {
+    font-size: 36px; color: var(--gold);
+    font-family: var(--ff-display);
+    line-height: 1; margin-bottom: 16px;
+  }
+
+  .testi-text {
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.8; margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    font-size: 22px;
+    background: linear-gradient(135deg, var(--sky-light), var(--sky));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: white; font-family: var(--ff-display);
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 600; font-size: 15px; color: var(--text-dark); }
+  .testi-dest { font-size: 13px; color: var(--text-light); }
+
+  .testi-stars {
+    display: flex; gap: 2px; margin-bottom: 16px;
+  }
+  .star { color: var(--gold); font-size: 15px; }
+
+  /* ─── UNIVERSITIES ─── */
+  #universities { background: var(--section-bg); }
+
+  .uni-logos {
+    display: flex; flex-wrap: wrap; gap: 20px;
+    justify-content: center; align-items: center;
+    margin-top: 48px;
+  }
+
+  .uni-logo {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 28px;
+    font-size: 14px; font-weight: 600;
+    color: var(--text-mid);
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .uni-logo:hover { border-color: var(--sky-light); color: var(--sky); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  /* ─── TEAM ─── */
+  #team { background: var(--white); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 28px;
+  }
+
+  .team-card {
+    text-align: center;
+    padding: 36px 24px;
+    background: var(--section-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+
+  .team-avatar {
+    width: 90px; height: 90px; border-radius: 50%;
+    margin: 0 auto 18px;
+    font-size: 36px;
+    background: linear-gradient(135deg, var(--sky), var(--sky-light));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; color: white; font-family: var(--ff-display);
+  }
+
+  .team-name { font-size: 18px; font-weight: 600; color: var(--text-dark); }
+  .team-role { font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.5px; margin-top: 4px; }
+  .team-desc { font-size: 14px; color: var(--text-mid); margin-top: 12px; line-height: 1.6; }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: linear-gradient(160deg, var(--sky) 0%, var(--sky-mid) 100%);
+    position: relative; overflow: hidden;
+  }
+  #contact::before {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200,146,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px; align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700; color: var(--white); margin-bottom: 20px; line-height: 1.15;
+  }
+  .contact-info p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 40px; }
+
+  .contact-details { display: flex; flex-direction: column; gap: 20px; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .contact-detail-text strong { display: block; color: var(--white); font-size: 14px; font-weight: 600; }
+  .contact-detail-text span { color: rgba(255,255,255,0.6); font-size: 14px; }
+
+  .contact-form {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 48px 44px;
+  }
+
+  .contact-form h3 {
+    font-family: var(--ff-display);
+    font-size: 24px; font-weight: 700;
+    color: var(--text-dark); margin-bottom: 32px;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-group label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--text-mid); margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--section-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 15px; font-family: var(--ff-body);
+    color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--sky-light);
+    box-shadow: 0 0 0 3px rgba(46,107,196,0.12);
+    background: var(--white);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--sky);
+    color: var(--white);
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 16px; font-weight: 700;
+    border: none; cursor: pointer;
+    transition: all 0.25s;
+    font-family: var(--ff-body);
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--sky-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11,46,94,0.3); }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--section-bg); }
+
+  .faq-list { max-width: 800px; margin: 0 auto; }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .faq-q {
+    width: 100%; text-align: left;
+    background: none; border: none;
+    padding: 22px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 16px; font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-family: var(--ff-body);
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--sky-light); }
+
+  .faq-q-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--section-bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--sky);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .faq-item.open .faq-q-icon { transform: rotate(45deg); background: var(--sky); color: white; }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s;
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.8;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--text-dark);
+    padding: 72px 5% 32px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 56px;
+  }
+
+  .footer-brand .nav-logo-text { color: var(--white); font-size: 22px; }
+  .footer-brand p { font-size: 14px; line-height: 1.75; margin-top: 16px; max-width: 280px; }
+
+  .footer-col h4 {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .footer-col a {
+    display: block; font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none; margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+
+  .footer-bottom p { font-size: 13px; }
+  .footer-socials { display: flex; gap: 12px; }
+  .social-btn {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 16px; transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--sky-light); color: white; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .process-steps::before { left: 29px; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+    .contact-form { padding: 32px 24px; }
+  }
+
+  /* ─── MOBILE MENU ─── */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 999;
+    background: var(--sky);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a {
+    color: var(--white); text-decoration: none;
+    font-size: 24px; font-weight: 600;
+    font-family: var(--ff-display);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold-light); }
+  .mobile-close {
+    position: absolute; top: 24px; right: 5%;
+    background: none; border: none; cursor: pointer;
+    color: white; font-size: 32px;
+  }
+
+  /* ─── FLOATING CTA ─── */
+  .floating-wa {
+    position: fixed; bottom: 32px; right: 32px;
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+    z-index: 900;
+    transition: all 0.3s;
+    font-size: 28px;
+  }
+  .floating-wa:hover { transform: scale(1.12); box-shadow: 0 8px 36px rgba(37,211,102,0.5); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">S</div>
+    <div>
+      <div class="nav-logo-text">Skyline</div>
+      <div class="nav-logo-sub">Consultancy</div>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#why" class="mm-link">Why Us</a>
+  <a href="#destinations" class="mm-link">Destinations</a>
+  <a href="#services" class="mm-link">Services</a>
+  <a href="#process" class="mm-link">Process</a>
+  <a href="#testimonials" class="mm-link">Reviews</a>
+  <a href="#faq" class="mm-link">FAQ</a>
+  <a href="#contact" class="mm-link" style="color: var(--gold-light);">Get Consultation →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-badge">Trusted by 5000+ Students Worldwide</div>
+  <h1 class="hero-title">Your Dream University<br>is <span>One Step</span> Away</h1>
+  <p class="hero-sub">Skyline Consultancy guides ambitious students to top universities across the globe — from application to arrival, every step covered.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get Free Consultation</a>
+    <a href="#destinations" class="btn-outline">Explore Destinations</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">5000<span>+</span></div>
+      <div class="hero-stat-label">Students Placed</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">98<span>%</span></div>
+      <div class="hero-stat-label">Visa Success Rate</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">40<span>+</span></div>
+      <div class="hero-stat-label">Countries</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">15<span>+</span></div>
+      <div class="hero-stat-label">Years Experience</div>
+    </div>
+  </div>
+  <a href="#why" class="hero-scroll">Scroll</a>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-header center">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">We Don't Just Apply —<br>We Strategize</h2>
+    <p class="section-desc">Every student is unique. We craft personalized pathways that maximize your chances of admission to your dream institution.</p>
+  </div>
+
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-icon">🎓</div>
+      <h3>Expert Counselors</h3>
+      <p>Our team holds degrees from the very universities we recommend. Real experience, real insight — not just brochures.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✈️</div>
+      <h3>End-to-End Support</h3>
+      <p>From shortlisting to landing at your destination, we handle applications, visas, accommodation, and pre-departure prep.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>Scholarship Matching</h3>
+      <p>We identify and apply for scholarships worth millions — many students get their education funded significantly.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌐</div>
+      <h3>500+ Partner Universities</h3>
+      <p>Deep partnerships with top institutions give our students access to exclusive programs and fast-track admissions.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <h3>24/7 Student Helpdesk</h3>
+      <p>Questions don't keep business hours. Our dedicated support team is always available to address your concerns.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <h3>Award-Winning Agency</h3>
+      <p>Recognised as South Asia's Best Study Abroad Consultancy four years running by the Education Excellence Awards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+  <div class="section-header center">
+    <div class="section-label">Destinations</div>
+    <h2 class="section-title">Where Will Your Journey Take You?</h2>
+    <p class="section-desc">We have strong networks and deep expertise in over 40 countries. Here are our most popular study destinations.</p>
+  </div>
+
+  <div class="dest-grid reveal">
+    <div class="dest-card">
+      <div class="dest-flag">🇬🇧</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">Most Popular</div>
+        <div class="dest-name">United Kingdom</div>
+        <div class="dest-unis">Oxford, Imperial, UCL, Edinburgh & 80+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-flag">🇺🇸</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">Top Pick</div>
+        <div class="dest-name">United States</div>
+        <div class="dest-unis">MIT, Stanford, Ivy League & 120+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-flag">🇨🇦</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">Fast Visa</div>
+        <div class="dest-name">Canada</div>
+        <div class="dest-unis">UBC, Toronto, McGill & 60+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-flag">🇦🇺</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">PR Pathway</div>
+        <div class="dest-name">Australia</div>
+        <div class="dest-unis">Melbourne, ANU, Sydney & 45+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-flag">🇩🇪</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">Free Tuition</div>
+        <div class="dest-name">Germany</div>
+        <div class="dest-unis">TUM, LMU, Heidelberg & 50+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-flag">🇳🇿</div>
+      <div class="dest-overlay">
+        <div class="dest-tag">Work Rights</div>
+        <div class="dest-name">New Zealand</div>
+        <div class="dest-unis">Auckland, Victoria, Otago & 20+ more</div>
+      </div>
+      <div class="dest-arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-label" style="color: var(--gold-light);">Our Services</div>
+    <h2 class="section-title section-title-white">Everything You Need,<br>Under One Roof</h2>
+    <p class="section-desc" style="color: rgba(255,255,255,0.6);">A complete suite of study abroad services crafted to eliminate stress and maximize outcomes.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <span class="service-icon">🔍</span>
+      <h3>Career & Course Counselling</h3>
+      <p>We assess your academic background, interests, and career goals to recommend the perfect courses and universities.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <span class="service-icon">📝</span>
+      <h3>Application Assistance</h3>
+      <p>Compelling SOPs, LORs, and essays crafted by expert writers who know exactly what admissions officers want to see.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <span class="service-icon">🛂</span>
+      <h3>Visa Processing</h3>
+      <p>98% visa success rate backed by meticulous documentation review, mock interviews, and embassy preparation.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <span class="service-icon">💰</span>
+      <h3>Scholarship Guidance</h3>
+      <p>We identify scholarships worth thousands of dollars and manage the entire application process for you.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <span class="service-icon">📚</span>
+      <h3>Test Prep (IELTS/TOEFL/GRE)</h3>
+      <p>Intensive coaching programs with experienced trainers to help you achieve the scores your dream university demands.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+    <div class="service-item">
+      <div class="service-num">06</div>
+      <span class="service-icon">🏡</span>
+      <h3>Pre-Departure & Accommodation</h3>
+      <p>Airport pickup coordination, student housing search, health insurance, and a complete pre-departure orientation.</p>
+      <a class="service-learn" href="#contact">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header center">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Dream to Degree<br>in 6 Simple Steps</h2>
+  </div>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Free Initial Consultation</h3>
+        <p>Book a no-obligation session with our senior counselor to discuss your academic background, goals, budget, and preferred destinations.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Profile Evaluation & University Shortlisting</h3>
+        <p>We analyze your profile and curate a personalized list of 8–12 universities across ambition, match, and safety categories.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Test Preparation & Documentation</h3>
+        <p>IELTS/TOEFL coaching, SOP drafting, essay writing, and collation of all supporting documents required for applications.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Application Submission</h3>
+        <p>We submit flawless applications on your behalf, track deadlines, and follow up with admissions offices to ensure your file stands out.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Offer Letter & Visa Filing</h3>
+        <p>Once offers arrive, we guide you through choosing the best one, prepare your visa file, and coach you for your interview.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Pre-Departure & Arrival Support</h3>
+        <p>Travel briefing, accommodation arrangement, bank account guidance, SIM card setup — we make sure you land confident and prepared.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header center">
+    <div class="section-label">Student Stories</div>
+    <h2 class="section-title">5000+ Students.<br>5000+ Success Stories.</h2>
+  </div>
+
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Skyline got me into the University of Edinburgh with a 60% scholarship. Their SOP team is genuinely outstanding — my counselor rewrote my draft three times until it was perfect.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Arjun Mehta</div>
+          <div class="testi-dest">MSc Data Science · University of Edinburgh, UK</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I was rejected before coming to Skyline. They rebuilt my profile from scratch, identified the right universities, and now I'm at University of Toronto. Best decision I ever made.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">Sara Iqbal</div>
+          <div class="testi-dest">BEng Computer Engineering · University of Toronto, Canada</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Visa was the scariest part for me. My Skyline advisor prepared me so thoroughly for the embassy interview that I felt completely calm. Got the visa in 10 days flat.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Rahul Sharma</div>
+          <div class="testi-dest">MBA Finance · University of Melbourne, Australia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">They helped me get into TU Munich — which has FREE tuition! Plus a DAAD scholarship. I'm saving lakhs every year. The Germany team at Skyline really knows their stuff.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Priya Nair</div>
+          <div class="testi-dest">MSc Mechanical Engineering · TU Munich, Germany</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">From the first call to my flight, Skyline was with me every step. My IELTS score went from 6.5 to 7.5 after their coaching, which opened doors I didn't think were possible.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">Z</div>
+        <div>
+          <div class="testi-name">Zara Khan</div>
+          <div class="testi-dest">LLM International Law · University College London, UK</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Skyline arranged my student housing in Auckland before I even landed. The pre-departure briefing was so thorough — I felt like a local within a week of arriving. Exceptional service.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">K</div>
+        <div>
+          <div class="testi-name">Kiran Patel</div>
+          <div class="testi-dest">BBA Business Analytics · University of Auckland, NZ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITIES -->
+<section id="universities">
+  <div class="section-header center">
+    <div class="section-label">Partner Institutions</div>
+    <h2 class="section-title">500+ Universities Trust Us</h2>
+    <p class="section-desc">We maintain official partnerships with leading universities around the world, giving our students a distinct advantage.</p>
+  </div>
+
+  <div class="uni-logos reveal">
+    <div class="uni-logo">University of Oxford</div>
+    <div class="uni-logo">MIT</div>
+    <div class="uni-logo">University of Toronto</div>
+    <div class="uni-logo">University of Melbourne</div>
+    <div class="uni-logo">TU Munich</div>
+    <div class="uni-logo">Imperial College London</div>
+    <div class="uni-logo">Stanford University</div>
+    <div class="uni-logo">University of British Columbia</div>
+    <div class="uni-logo">ETH Zurich</div>
+    <div class="uni-logo">National University of Singapore</div>
+    <div class="uni-logo">McGill University</div>
+    <div class="uni-logo">University of Edinburgh</div>
+    <div class="uni-logo">Johns Hopkins University</div>
+    <div class="uni-logo">University of Sydney</div>
+    <div class="uni-logo">Leiden University</div>
+    <div class="uni-logo">University College London</div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header center">
+    <div class="section-label">Meet the Team</div>
+    <h2 class="section-title">Counselors Who've<br>Been There Themselves</h2>
+    <p class="section-desc">Every advisor on our team studied abroad and brings firsthand experience to your journey.</p>
+  </div>
+
+  <div class="team-grid reveal">
+    <div class="team-card">
+      <div class="team-avatar">AK</div>
+      <div class="team-name">Aditya Kumar</div>
+      <div class="team-role">Founder & Head Counselor</div>
+      <div class="team-desc">MBA from London Business School. 15+ years guiding students to top global universities.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">NP</div>
+      <div class="team-name">Nidhi Patel</div>
+      <div class="team-role">UK & Europe Specialist</div>
+      <div class="team-desc">MSc from University of Edinburgh. Expert in Tier 4 visas and UK university applications.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">RS</div>
+      <div class="team-name">Rohan Sharma</div>
+      <div class="team-role">USA & Canada Advisor</div>
+      <div class="team-desc">MS Computer Science from Cornell. Placed 400+ students at Ivy League & R1 universities.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">MJ</div>
+      <div class="team-name">Maya Joshi</div>
+      <div class="team-role">Australia & NZ Expert</div>
+      <div class="team-desc">BBA from University of Melbourne. Specialist in PR pathways and scholarship applications.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header center">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions We Hear Every Day</h2>
+  </div>
+
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-q">
+        What is the cost of Skyline's consultancy services?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">Our initial consultation is completely free. Our paid service packages are tiered — from Essential (application-only) to Premium (end-to-end support including visa and pre-departure). We will share a detailed fee structure after assessing your profile during the free consultation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        How early should I start the process?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">We recommend starting at least 12–18 months before your intended intake, particularly for UK, USA, and Canada. For Germany and some European countries with rolling admissions, 6–8 months can also work. Early starters get the best scholarship opportunities and more university choices.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        Do you guarantee visa approval?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">No ethical consultancy can guarantee a visa, as final decisions rest with the embassy. However, our 98% success rate reflects our thorough documentation process, mock interview preparation, and meticulous attention to every detail in your application file.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        Can you help students with low CGPA or backlogs?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">Absolutely. We specialize in strategically positioning students with academic challenges. We identify universities with holistic admission criteria and help craft a compelling narrative around your strengths, work experience, and future goals that can offset a lower GPA or backlogs.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        Do you offer IELTS and GRE coaching?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">Yes! We offer both online and in-person coaching for IELTS, TOEFL, PTE, GRE, and GMAT. Our trainers have a track record of improving student scores by 1–2 bands within 4–6 weeks of intensive preparation. Coaching is available as a standalone service or bundled with consultancy packages.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        What happens after I receive my offer letter?
+        <span class="faq-q-icon">+</span>
+      </button>
+      <div class="faq-a">Our support doesn't stop at admission. After your offer letter, we assist with: comparing and accepting offers, paying tuition deposits, applying for student housing, opening overseas bank accounts, arranging travel insurance, pre-departure orientation, and connecting you with our alumni network at your university.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="section-label" style="color: var(--gold-light);">Get In Touch</div>
+      <h2>Start Your Global Journey Today</h2>
+      <p>Book a free 30-minute consultation with one of our senior advisors. No pressure, no commitments — just expert guidance.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Office Address</strong>
+            <span>4th Floor, Skyline Tower, Connaught Place, New Delhi — 110001</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Phone & WhatsApp</strong>
+            <span>+91 98100 12345 · +91 11 4567 8900</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>hello@skylineconsultancy.in</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Office Hours</strong>
+            <span>Mon–Sat: 9:00 AM – 7:00 PM IST</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3>Book Your Free Consultation</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Arjun" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Mehta" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="arjun@example.com" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Destination</label>
+          <select>
+            <option value="">Select country</option>
+            <option>United Kingdom</option>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>Germany</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Netherlands</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Intended Intake</label>
+          <select>
+            <option value="">Select intake</option>
+            <option>September 2025</option>
+            <option>January 2026</option>
+            <option>September 2026</option>
+            <option>January 2027</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tell us about your goals</label>
+        <textarea placeholder="Share your academic background, target courses, and any specific questions..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(this)">Book Free Consultation →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo" style="margin-bottom: 0;">
+        <div class="nav-logo-icon">S</div>
+        <div>
+          <div class="nav-logo-text">Skyline Consultancy</div>
+          <div class="nav-logo-sub">Study Abroad Experts</div>
+        </div>
+      </a>
+      <p>Empowering ambitious students from South Asia to reach the world's finest universities since 2009. Your dream institution is closer than you think.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#why">Why Skyline</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#services">Services</a>
+      <a href="#process">Our Process</a>
+      <a href="#testimonials">Success Stories</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Destinations</h4>
+      <a href="#destinations">United Kingdom</a>
+      <a href="#destinations">United States</a>
+      <a href="#destinations">Canada</a>
+      <a href="#destinations">Australia</a>
+      <a href="#destinations">Germany</a>
+      <a href="#destinations">New Zealand</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Career Counselling</a>
+      <a href="#services">Application Help</a>
+      <a href="#services">Visa Processing</a>
+      <a href="#services">Scholarships</a>
+      <a href="#services">IELTS Coaching</a>
+      <a href="#services">Accommodation</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Skyline Consultancy Pvt. Ltd. All rights reserved. · <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">Privacy Policy</a> · <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">Terms of Service</a></p>
+    <div class="footer-socials">
+      <a href="#" class="social-btn" title="Instagram">📷</a>
+      <a href="#" class="social-btn" title="Facebook">📘</a>
+      <a href="#" class="social-btn" title="LinkedIn">💼</a>
+      <a href="#" class="social-btn" title="YouTube">▶️</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a class="floating-wa" href="https://wa.me/919810012345" title="Chat on WhatsApp" target="_blank">💬</a>
+
+<script>
+  // ── NAV: hamburger ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mm-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── NAV: scroll shadow ──
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 60 ? '0 4px 32px rgba(0,0,0,0.2)' : 'none';
+  });
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Form submit ──
+  function handleSubmit(btn) {
+    btn.textContent = '✓ Consultation Request Sent!';
+    btn.style.background = '#1D9E75';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Book Free Consultation →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
+
+  // ── Smooth anchor scroll accounting for nav height ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Counter animation for hero stats ──
+  function animateCount(el, target, suffix) {
+    let start = 0;
+    const duration = 1800;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.querySelector('.hero-stat-num').innerHTML = Math.floor(eased * target) + '<span>' + suffix + '</span>';
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stats = [
+          { el: document.querySelectorAll('.hero-stat')[0], val: 5000, suffix: '+' },
+          { el: document.querySelectorAll('.hero-stat')[1], val: 98, suffix: '%' },
+          { el: document.querySelectorAll('.hero-stat')[2], val: 40, suffix: '+' },
+          { el: document.querySelectorAll('.hero-stat')[3], val: 15, suffix: '+' },
+        ];
+        stats.forEach(s => animateCount(s.el, s.val, s.suffix));
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+</script>
+</body>
+</html>
